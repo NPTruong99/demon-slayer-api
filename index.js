@@ -36,7 +36,9 @@ app.get("/v1", (req, res) => {
                 const image = $(this).find("a > img").attr("data-src");
                 thumbnails.push({
                     name: name,
-                    url: "http://localhost:8000/v1" + url.split("/wiki")[1],
+                    url:
+                        "https://demon-slayer-api-zfkt.onrender.com/v1" +
+                        url.split("/wiki")[1],
                     image: image,
                 });
             });
@@ -107,4 +109,4 @@ app.get("/v1/:character", (req, res) => {
 });
 
 // Run port
-app.listen(8000, () => console.log("Server is running..."));
+app.listen(process.env.PORT || 8000, () => console.log("Server is running..."));
